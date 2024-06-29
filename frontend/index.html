@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Ποντικίδου Δήμητρα Εσωτερικές Παραγγελίες</h1>
+    <div class="order-form">
+        <div class="customer-name">
+            <h3>Όνομα πελάτη</h3>
+            <input type="text" id="customerName" placeholder="Όνομα πελάτη">    
+        </div>
+        <div id="products">
+            <div class="product">
+                <div class="product-tab">
+                    <h3>Προιόν</h3>
+                    <input type="text" placeholder="Προιόν">
+                </div>
+                <div class="product-tab">
+                    <h3>Ποσότητα</h3>
+                    <input type="number" placeholder="Ποσότητα">
+                </div>
+            </div>
+        </div>
+        <button id="add-product">Πρόσθεσε προιόν</button>
+        <div class="note-box">
+            <h3>Σημειώσεις</h3>
+            <textarea id="notes" placeholder="Σημειώσεις"></textarea>
+        </div>
+        <button id="submit-order">Πρόσθεσε παραγγελία</button>
+    </div>
+    <h2>Ενεργές παραγγελίες</h2>
+    <div id="orders"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
