@@ -105,7 +105,7 @@ h3 {
 .note-box{
     display: flex;
     flex-direction: column;
-    margin: 50px 0;
+    margin: 0 5pxpx;
     padding: 10px;
     justify-content: center;
     align-content: center;
@@ -148,16 +148,19 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin-right: auto;
     padding: 10px;
-    font-size: large;
+    font-size: x-large;
+    word-wrap: break-word;
 }
 
 .order-actions {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin-left: auto;
     padding: 10px;
 }
 

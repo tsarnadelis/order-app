@@ -3,3 +3,9 @@
 /backend
 /frontend
 /package-lock.json
+
+# Local Netlify folder
+.netlify
+
+.env
+deno.lock

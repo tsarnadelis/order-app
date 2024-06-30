@@ -76,8 +76,11 @@ async function loadOrders() {
 }
 
 async function deleteOrder(id) {
-    await fetch(`${apiUrl}?id=${id}`, { method: 'DELETE' });
-    loadOrders();
+    const confirmed = confirm("Είστε σίγουροι ότι θέλετε να διαγράψετε την παραγγελία; Αυτή η ενέργεια είναι ΜΟΝΙΜΗ ΔΙΑΓΡΑΦΗ!");
+    if (confirmed) {
+        await fetch(`${apiUrl}?id=${id}`, { method: 'DELETE' });
+        loadOrders();
+    };
 }
 
 async function completeOrder(id) {
