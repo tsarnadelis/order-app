@@ -2,6 +2,12 @@ const { connectToDatabase, Order } = require('./mongoose');
 
 exports.handler = async (event, context) => {
     context.callbackWaitsForEmptyEventLoop = false;
+    const headers = {
+        'Access-Control-Allow-Origin': 'https://pontikidouorder.netlify.app',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET, POST, DELETE, PATCH, OPTIONS'
+    };
+    
     await connectToDatabase();
 
     const { httpMethod, path, body, queryStringParameters } = event;
