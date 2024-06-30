@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+// Suppress deprecation warning
+mongoose.set('strictQuery', true);
+
 const connectToDatabase = () => {
     return mongoose.connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
