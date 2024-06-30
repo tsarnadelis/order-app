@@ -72,6 +72,7 @@ async function loadOrders() {
             </div>
             `;
         ordersDiv.appendChild(orderDiv);
+        updateActiveOrdersCount();
     });
 }
 
@@ -94,6 +95,22 @@ async function uncompleteOrder(id) {
         await fetch(`${apiUrl}?id=${id}`, { method: 'PATCH' });
         loadOrders();
     }
+}
+
+// Check number of active orders
+const activeOrdersDiv = document.createElement('div');
+activeOrdersDiv.innerHTML = `Ενεργές παραγγελίες <br><br>Εκκρεμείς: <span id="pending-orders"></span> <br><br>Ολοκληρωμένες: <span id="completed-orders"></span> `;
+document.getElementById('active-orders').appendChild(activeOrdersDiv);
+
+async function updateActiveOrdersCount() {
+    const response = await fetch(apiUrl);
+    const orders = await response.json();
+
+    const pendingOrdersCount = orders.filter(order => !order.completed).length;
+    const completedOrdersCount = orders.filter(order => order.completed).length;
+
+    document.getElementById('pending-orders').textContent = pendingOrdersCount;
+    document.getElementById('completed-orders').textContent = completedOrdersCount;
 }
 
 loadOrders();
