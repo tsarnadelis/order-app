@@ -1,12 +1,18 @@
 const mongoose = require('mongoose');
 
-// Suppress deprecation warning
 mongoose.set('strictQuery', true);
 
+let isConnected;
+
 const connectToDatabase = () => {
+    if (isConnected) {
+        return Promise.resolve();
+    }
     return mongoose.connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
+    }).then(db => {
+        isConnected = db.connections[0].readyState;
     });
 };
 
