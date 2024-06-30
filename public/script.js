@@ -60,10 +60,10 @@ async function loadOrders() {
         orderDiv.style.backgroundColor = order.completed ? '#9eedaa' : 'lightyellow';
         orderDiv.innerHTML = `
             <div class="order-info">
-                <p><strong>Πελάτης:</strong> ${order.customerName}</p>
-                <p><strong>Προιόν:</strong> ${order.products.map(p => `${p.productName} (${p.quantity})`).join(', ')}</p>
-                <p><strong>Σημειώσεις:</strong> ${order.notes}</p>
-                <p><strong>Κατάσταση:</strong> ${order.completed ? 'Ολοκληρωμένη' : 'Εκκρεμής'}</p>
+                <p>Πελάτης:<strong> ${order.customerName}</strong></p>
+                <p>Προιόν:<strong> ${order.products.map(p => `${p.productName}</strong> Ποσότητα: <strong>${p.quantity}`).join('</p><p>Προιόν: ')}</strong></p>
+                <p>Σημειώσεις: <strong>${order.notes}</strong></p>
+                <p>Κατάσταση: <strong>${order.completed ? 'Ολοκληρωμένη' : 'Εκκρεμής'}</strong></p>
             </div>
             <div class="order-actions">
                 <button class="delete-order" onclick="deleteOrder('${order._id}')">Διαγραφή</button>
